@@ -1,40 +1,46 @@
 package edu.ppu.runners;
 
-import java.util.Arrays;
 import java.util.List;
 
 import edu.ppu.domain.Person;
 
 public class PersonRunner {
 
-	public static void main(String[] args) {
+	private PersonService personService;
 
-		Person person = new Person("p1", 10);
-		List<Person> persons = Arrays.asList(new Person("p2", 10), new Person("p3", 20), new Person("Gohst", 3000));
-		double avgAge = getAvg(persons);
-		System.out.println(avgAge);
-
-		Person maxAgePerson = getOldestGuy(persons);
-
-		System.out.println(maxAgePerson);
-
+	public PersonRunner(PersonService personService) {
+		super();
+		this.personService = personService;
 	}
 
-	private static Person getOldestGuy(List<Person> persons) {
+	public Person getOldestGuy() {
 		Person maxAgePerson = null;
-		for (Person currPerson : persons) {
+		for (Person currPerson : personService.getPersons(50)) {
 			if (maxAgePerson == null || currPerson.getAge() > maxAgePerson.getAge())
 				maxAgePerson = currPerson;
 		}
 		return maxAgePerson;
 	}
 
-	private static double getAvg(List<Person> persons) {
+	public double getAvg() {
 		int sum = 0;
+		List<Person> persons = personService.getPersons(50);
 		for (Person person : persons) {
 			sum += person.getAge();
 		}
 		return sum / persons.size();
 	}
 
+	public int getAgeCategory(int age) {
+
+		if (age > 150)
+			throw new IllegalArgumentException("invalid age");
+		if (age < 20)
+			return 1;
+		else if (age < 60)
+			return 2;
+		else
+			return 3;
+
+	}
 }
