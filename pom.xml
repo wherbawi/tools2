@@ -18,6 +18,15 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.geotools/gt-main -->
+		<!-- https://mvnrepository.com/artifact/nl.cloudfarming.client/lib-geotools -->
+		<dependency>
+			<groupId>nl.cloudfarming.client</groupId>
+			<artifactId>lib-geotools</artifactId>
+			<version>2.7.7-NB72</version>
+		</dependency>
+
+
 
 	</dependencies>
 </project>
