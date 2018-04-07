@@ -10,6 +10,7 @@ public class PolygonArea {
 
 		c.setDestinationGeographicPoint(48.690815, 9.194553);
 		System.out.println(c.getOrthodromicDistance());
+		System.out.println("Hello World");
 	}
 
 }
