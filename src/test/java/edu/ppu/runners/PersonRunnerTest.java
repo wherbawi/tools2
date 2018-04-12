@@ -33,7 +33,7 @@ public class PersonRunnerTest {
 				.thenReturn(Arrays.asList(new Person("child", 10), new Person("old", 70)));
 		PersonRunner cut = new PersonRunner(mockPersonServiceImpl);
 		double avg = cut.getAvg();
-		assertEquals("invalid avg age!!!", 40, avg, 0);
+		assertEquals("invalid avg age!!!", 400, avg, 0);
 	}
 
 }
